@@ -1,5 +1,5 @@
 import pytest
-from add import add 
+from add import sub
 
 def test_sub():
     assert sub(1, 1)==0
