@@ -41,13 +41,15 @@ jobs:
           fetch-depth: 0
 
       - name: Merge to main
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
         run: |
           git config --local user.email "harmish2111patel@gmail.com"
           git config --local user.name "harmishpatel21"
           git checkout main
           git pull origin main
           git merge --no-ff dev
-          git push origin main
+          git push https://x-access:${GITHUB_TOKEN}@github.com/harmishpatel21/python-git-workflow.git main
 
   cleanup:
     runs-on: ubuntu-latest
