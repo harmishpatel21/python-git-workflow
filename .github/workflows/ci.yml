@@ -39,9 +39,10 @@ jobs:
 
       - name: Merge to dev
         run : |
-          git config user.email "harmish2111patel@gmail.com"
-          git config user.name "harmishpatel21"
+          git config --local user.email "harmish2111patel@gmail.com"
+          git config --local user.name "harmishpatel21"
           git checkout dev
+          git pull origin dev
           git merge --no-ff ${{ github.ref }}
           git push origin dev
   
