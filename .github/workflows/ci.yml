@@ -62,7 +62,9 @@ jobs:
           fetch-depth: 0
 
       - name: Delete feature/bugfix branch
+        if: startsWith(github.ref, 'refs/heads/feature/') || startsWith(github.ref, 'ref/heads/bugfix/')
         run: |
+          echo "Deleting branch ${{ github.head_ref }}"
           git branch -d ${{ github.head_ref }}
           git push origin --delete ${{ github.head_ref }}
 
